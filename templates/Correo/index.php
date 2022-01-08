@@ -1,34 +1,36 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \App\Model\Entity\User[]|\Cake\Collection\CollectionInterface $users
+ * @var \App\Model\Entity\Correo[]|\Cake\Collection\CollectionInterface $correo
  */
 ?>
-<div class="users index content">
-    <?= $this->Html->link(__('New User'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-    <h3><?= __('Users') ?></h3>
+<div class="correo index content">
+    <?= $this->Html->link(__('New Correo'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+    <h3><?= __('Correo') ?></h3>
     <div class="table-responsive">
         <table>
             <thead>
                 <tr>
                     <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('username') ?></th>
-                    <th><?= $this->Paginator->sort('email') ?></th>
-                    <th><?= $this->Paginator->sort('role') ?></th>
+                    <th><?= $this->Paginator->sort('emisor') ?></th>
+                    <th><?= $this->Paginator->sort('receptor') ?></th>
+                    <th><?= $this->Paginator->sort('descripcion') ?></th>
+                    <th><?= $this->Paginator->sort('estado') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($users as $user): ?>
+                <?php foreach ($correo as $correo): ?>
                 <tr>
-                    <td><?= $this->Number->format($user->id) ?></td>
-                    <td><?= h($user->username) ?></td>
-                    <td><?= h($user->email) ?></td>
-                    <td><?= h($user->role) ?></td>
+                    <td><?= $this->Number->format($correo->id) ?></td>
+                    <td><?= h($correo->emisor) ?></td>
+                    <td><?= h($correo->receptor) ?></td>
+                    <td><?= h($correo->descripcion) ?></td>
+                    <td><?= h($correo->estado) ?></td>
                     <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $user->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?>
+                        <?= $this->Html->link(__('View'), ['action' => 'view', $correo->id]) ?>
+                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $correo->id]) ?>
+                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $correo->id], ['confirm' => __('Are you sure you want to delete # {0}?', $correo->id)]) ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>

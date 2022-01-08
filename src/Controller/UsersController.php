@@ -112,7 +112,19 @@ class UsersController extends AppController
             if($user)
             {
                 $this->Auth->setUser($user);
-                return $this->redirect(['controller'=>'datos']);
+
+                if (isset($user['role']) && $user['role'] === 'admin') {
+                    return $this->redirect(['controller'=>'puntaje',
+                    'action' => 'inicio']);
+                }
+                if(isset($user['role']) && $user['role'] === 'user')
+                {
+                    return $this->redirect([
+                        'controller' => 'datos',
+                        'action' => 'inicio'
+                    ]);
+                }
+                
             }
 
             //Bad Login

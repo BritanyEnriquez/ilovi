@@ -51,4 +51,12 @@
         </ul>
         <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
     </div>
+    <td class="actions">
+                        <?= $this->Html->link(__('Menu Principal'), [
+                        'controller' => 'puntaje',
+                        'action' => 'inicio'
+                    ]) ?>
+                    
+                        
+                    </td>
 </div>

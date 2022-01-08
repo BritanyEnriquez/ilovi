@@ -72,6 +72,7 @@ return static function (RouteBuilder $routes) {
          */
         $builder->fallbacks();
     });
+    
 
     /*
      * If you need a different set of middleware or none at all,

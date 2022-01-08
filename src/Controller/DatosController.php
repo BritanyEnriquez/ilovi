@@ -23,6 +23,13 @@ class DatosController extends AppController
         $this->set(compact('datos'));
     }
 
+    public function inicio()
+    {
+        $datos = $this->paginate($this->Datos);
+
+        $this->set(compact('datos'));
+    }
+   
     /**
      * View method
      *
@@ -112,4 +119,5 @@ class DatosController extends AppController
 
     return parent::isAuthorized($user);
     }
+
 }
